@@ -1,3 +1,7 @@
+"""
+To Do Planner. Accept tasks from user and make csv files with them
+User can view, add, change, delete tasks
+"""
 from idlelib.multicall import r
 
 
@@ -85,7 +89,9 @@ def write_csv(path_file, new_task):
 
 
 def add_tasks():
-    """Asks information about task and returns it in csv format"""
+    """
+    Asks information about task and returns it in csv format
+    """
     task = input('Write a task: ')
     location = input('Write a location: ')
     collaborators = input('Write your coworkers: ')
@@ -95,6 +101,9 @@ def add_tasks():
     return ','.join(lst)
 
 if __name__ == '__main__':
+    """
+    Main function
+    """
     print('enter your path to csv file with tasks')
     path = input()
     while True:
