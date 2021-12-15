@@ -14,6 +14,9 @@ def read_csv(path_file):
     2 - teammates
     3 - deadline
     4 - priority
+
+    >>> read_csv("D:\\prog\\workshop\\temp.txt")
+    [['Lab13', 'ЦШ', 'ніхто', '20.12.2021', '1'], ['Практична', 'Колегіум', 'моя група', '18.12.2021', '2'], ['Купити продукти', 'Сільпо', 'ніхто', '19.12.2021', '3']]
     """
     all_list = []
     with open(path_file, 'r', encoding='utf-8') as csv_file:
@@ -29,12 +32,16 @@ def print_csv(all_list):
     :param all_list: list of all tasks
     :return: nothing
     prints all tasks
+
+    >>> print_csv(read_csv("D:\\prog\\workshop\\temp.txt"))
+    ['Lab13', 'ЦШ', 'ніхто', '20.12.2021', '1']
+    ['Практична', 'Колегіум', 'моя група', '18.12.2021', '2']
+    ['Купити продукти', 'Сільпо', 'ніхто', '19.12.2021', '3']
     """
     all_list = sorted(all_list, key=lambda x: x[4])
     for i in range(len(all_list)):
         print(all_list[i])
     print()
-
 
 def delete_notion(filepath, name_task):
     """
@@ -61,6 +68,9 @@ def tasks_today(list_of_tasks):
     """
     list[list[str]] --> list[list[str]]
     Return tasks for today.
+
+    >>> tasks_today(read_csv("D:\\prog\\workshop\\temp.txt"))
+    'No task for today, Relax :)'
     """
     from datetime import date
 
@@ -99,6 +109,7 @@ def add_tasks():
     priority = input('Write a priority from 1 to the number of the last task: ')
     lst = [task,location,collaborators,date,priority]
     return ','.join(lst)
+
 
 if __name__ == '__main__':
     """
